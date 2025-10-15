@@ -1,19 +1,20 @@
-import { type ItemType, type MenuItemType } from "antd/es/menu/interface";
-
 import Link from "next/link";
 
-const genItem = (key: string, label: string, labelType?: "string" | "element"): MenuItemType => {
-  labelType = labelType || "element";
-
+const genItem = (key: string, label: string) => {
   return {
     key,
-    label: labelType === "element" ? <Link href={key}>{label}</Link> : label,
+    label: (
+      <Link className="inline-flex size-full items-center" href={key}>
+        {label}
+      </Link>
+    ),
+    text: label,
   };
 };
 
-export const navItems: ItemType<MenuItemType>[] = [
+export const navItems = [
   {
-    ...genItem("/uuid", "UUID", "string"),
+    ...genItem("/uuid", "UUID"),
     type: "group",
     children: [
       genItem("/uuid/v1", "Version 1 UUID"),
@@ -25,7 +26,7 @@ export const navItems: ItemType<MenuItemType>[] = [
     ],
   },
   {
-    ...genItem("/other", "Other", "string"),
+    ...genItem("/other", "Other"),
     type: "group",
     children: [genItem("/other/vin", "VIN")],
   },

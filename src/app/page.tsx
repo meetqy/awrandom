@@ -1,9 +1,9 @@
 "use client";
 import { Typography, Button } from "antd";
 
-import { navItems } from "@/lib/navs";
+import Link from "next/link";
 
-import type { MenuItemType } from "antd/es/menu/interface";
+import { navItems } from "@/lib/navs";
 
 const { Title, Text } = Typography;
 
@@ -23,13 +23,13 @@ export default function Home() {
           return (
             <div key={item.key} style={{ marginBottom: "32px" }}>
               <Title level={2} style={{ marginBottom: "16px" }}>
-                {item.label}
+                {item.text}
               </Title>
               <div className="flex flex-wrap gap-4">
                 {item.children.map((child) => (
-                  <div key={child?.key}>
-                    <Button size="large">{(child as MenuItemType).label}</Button>
-                  </div>
+                  <Link href={child.key} key={child?.key}>
+                    <Button size="large">{child.text}</Button>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -38,9 +38,9 @@ export default function Home() {
 
         // 如果是普通项目
         return (
-          <div key={item?.key} style={{ marginBottom: "32px" }}>
-            <Button size="large">{(item as MenuItemType).label}</Button>
-          </div>
+          <Link href={item.key} key={item?.key}>
+            <Button size="large">{item.text}</Button>
+          </Link>
         );
       })}
     </div>

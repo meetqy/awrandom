@@ -8,6 +8,8 @@ import Link from "next/link";
 
 import { navItems } from "@/lib/navs";
 
+import type { MenuItemType } from "antd/es/menu/interface";
+
 const { Header, Sider, Content } = Layout;
 
 const AppLayout = ({ children }: { children: ReactNode }) => {
@@ -39,7 +41,7 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
             <span className="text-lg font-semibold text-black">Aww Random</span>
           </Link>
         </Header>
-        <Menu className="!border-none" defaultSelectedKeys={["version-1-uuid"]} defaultOpenKeys={["uuid"]} mode="inline" items={navItems} />
+        <Menu className="!border-none" defaultSelectedKeys={["version-1-uuid"]} defaultOpenKeys={["uuid"]} mode="inline" items={navItems as MenuItemType[]} />
       </Sider>
 
       <Layout>
