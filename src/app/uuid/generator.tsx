@@ -22,9 +22,19 @@ interface UuidRecord {
 
 export const uuidVersions = [
   { value: "v1", name: "Version 1 UUID", label: "UUID v1 (timestamp + MAC)", generator: () => uuid.v1() },
-  { value: "v3", name: "Version 3 UUID", label: "UUID v3 (namespace + name MD5)", generator: () => uuid.v3("example", uuid.v3.DNS) },
+  {
+    value: "v3",
+    name: "Version 3 UUID",
+    label: "UUID v3 (namespace + name MD5)",
+    generator: () => uuid.v3(`https://awwrandom.com/${Date.now() - Math.random()}`, uuid.v3.URL),
+  },
   { value: "v4", name: "Version 4 UUID", label: "UUID v4 (random)", generator: () => uuid.v4() },
-  { value: "v5", name: "Version 5 UUID", label: "UUID v5 (namespace + name SHA-1)", generator: () => uuid.v5("example", uuid.v5.DNS) },
+  {
+    value: "v5",
+    name: "Version 5 UUID",
+    label: "UUID v5 (namespace + name SHA-1)",
+    generator: () => uuid.v5(`https://awwrandom.com/${Date.now() - Math.random()}`, uuid.v5.URL),
+  },
   { value: "v6", name: "Version 6 UUID", label: "UUID v6 (timestamp + MAC)", generator: () => uuid.v6() },
   { value: "v7", name: "Version 7 UUID", label: "UUID v7 (timestamp + random)", generator: () => uuid.v7() },
 ];
