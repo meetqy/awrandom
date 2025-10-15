@@ -1,8 +1,10 @@
 "use client";
 import React, { type ReactNode } from "react";
 
-import { SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined, SmileFilled } from "@ant-design/icons";
 import { Button, Input, Layout, Menu, theme } from "antd";
+
+import Link from "next/link";
 
 import { navItems } from "@/lib/navs";
 
@@ -31,7 +33,12 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
         collapsible
         theme="light"
       >
-        <Header />
+        <Header style={{ background: colorBgContainer, padding: "0 16px" }}>
+          <Link href="/" className="flex h-full w-full items-center gap-2">
+            <SmileFilled style={{ fontSize: 28 }} />
+            <span className="text-lg font-semibold text-black">Aww Random</span>
+          </Link>
+        </Header>
         <Menu className="!border-none" defaultSelectedKeys={["version-1-uuid"]} defaultOpenKeys={["uuid"]} mode="inline" items={navItems} />
       </Sider>
 
