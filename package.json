@@ -9,8 +9,8 @@
     "dev": "next dev --turbo",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
     "preview": "next build && next start",
     "start": "next start",
     "typecheck": "tsc --noEmit"
@@ -21,6 +21,7 @@
     "@ant-design/v5-patch-for-react-19": "^1.0.3",
     "@t3-oss/env-nextjs": "^0.12.0",
     "antd": "^5.27.5",
+    "eslint-plugin-import": "^2.32.0",
     "lodash-es": "^4.17.21",
     "next": "^15.2.3",
     "react": "^19.0.0",

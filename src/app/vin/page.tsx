@@ -15,14 +15,20 @@ export default function Page() {
     <section className="space-y-12">
       <Typography>
         <Title>Random VIN Generator</Title>
-        <Paragraph>Generate random Vehicle Identification Numbers (VIN) for testing and development purposes. VINs are unique 17-character codes used to identify vehicles.</Paragraph>
+        <Paragraph>
+          Generate random Vehicle Identification Numbers (VIN) for testing and development purposes. VINs are unique 17-character codes used to identify
+          vehicles.
+        </Paragraph>
       </Typography>
 
       <Generator />
 
       <Typography className="mt-12">
         <Title level={2}>About VINs</Title>
-        <Paragraph>VIN (Vehicle Identification Number) is a unique 17-character string assigned to every vehicle, consisting of numbers and letters, used to identify a specific automobile.</Paragraph>
+        <Paragraph>
+          VIN (Vehicle Identification Number) is a unique 17-character string assigned to every vehicle, consisting of numbers and letters, used to identify a
+          specific automobile.
+        </Paragraph>
 
         <Title level={3}>VIN Structure</Title>
         <Paragraph>A VIN consists of 17 characters divided into three main sections:</Paragraph>

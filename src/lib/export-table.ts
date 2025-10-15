@@ -9,14 +9,14 @@ interface ExportOptions {
  * @param options - Export options including filename and custom headers
  */
 export const exportToCSV = <T extends Record<string, unknown>>(data: T[], options: ExportOptions = {}) => {
-  if (!data || data.length === 0) {
+  if (data?.length === 0) {
     throw new Error("No data to export");
   }
 
   const { filename = "export.csv", headers } = options;
 
   // Get headers from data keys or use provided headers
-  const csvHeaders = headers || Object.keys(data[0]);
+  const csvHeaders = headers || Object.keys(data[0]!);
 
   // Create CSV content
   const csvContent = [
@@ -26,10 +26,10 @@ export const exportToCSV = <T extends Record<string, unknown>>(data: T[], option
         .map((header) => {
           const value = row[header];
           // Handle values that contain commas or quotes
-          const stringValue = String(value || "");
+          const stringValue = String(value);
           return stringValue.includes(",") || stringValue.includes('"') ? `"${stringValue.replace(/"/g, '""')}"` : stringValue;
         })
-        .join(",")
+        .join(","),
     ),
   ].join("\n");
 
@@ -54,7 +54,7 @@ export const exportToCSV = <T extends Record<string, unknown>>(data: T[], option
  * @param data - Data to export
  * @param filename - Name of the file
  */
-export const exportToJSON = <T>(data: T, filename: string = "export.json") => {
+export const exportToJSON = <T>(data: T, filename = "export.json") => {
   const jsonContent = JSON.stringify(data, null, 2);
   const blob = new Blob([jsonContent], { type: "application/json;charset=utf-8;" });
   const link = document.createElement("a");

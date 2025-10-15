@@ -144,7 +144,7 @@ export const Generator = () => {
   return (
     <Card>
       <Space direction="vertical" size="large" style={{ width: "100%" }}>
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <Space>
             <Text>Count:</Text>
             <InputNumber min={1} max={100} value={count} onChange={(value) => setCount(value || 1)} style={{ width: 80 }} />
@@ -189,7 +189,13 @@ export const Generator = () => {
             >
               {vin}
             </Button>
-            <div style={{ marginTop: "8px", display: "flex", justifyContent: "space-between" }}>
+            <div
+              style={{
+                marginTop: "8px",
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
               <Text type="secondary">WMI: {vin.slice(0, 3)}</Text>
               <Text type="secondary">VDS: {vin.slice(3, 9)}</Text>
               <Text type="secondary">VIS: {vin.slice(9, 17)}</Text>
