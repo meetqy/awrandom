@@ -1,14 +1,9 @@
 "use client";
 import { Typography } from "antd";
 
-import dynamic from "next/dynamic";
+import { Generator } from "./generator";
 
 const { Title, Paragraph, Text } = Typography;
-
-const Generator = dynamic(() => import("./generator").then((mod) => mod.Generator), {
-  ssr: false,
-  loading: () => <p>Loading...</p>,
-});
 
 export default function Page() {
   return (
