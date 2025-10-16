@@ -4,7 +4,18 @@ import { getNavMainItem } from "@/lib/sidebar";
 
 import { Generator } from "./generator";
 
-export default async function Layout() {
+import type { Metadata } from "next";
+
+export const generateMetadata = (): Metadata => {
+  const item = getNavMainItem(`/gen/other/vin`);
+
+  return {
+    title: `Random ${item!.title} Generator`,
+    description: `Generate random ${item!.title} for testing and development purposes.`,
+  };
+};
+
+export default function Layout() {
   const item = getNavMainItem(`/gen/other/vin`);
 
   if (!item) {
