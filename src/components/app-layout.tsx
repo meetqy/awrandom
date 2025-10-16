@@ -30,7 +30,7 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
           scrollbarWidth: "thin",
           scrollbarGutter: "stable",
         }}
-        width={280}
+        width={320}
         trigger={null}
         collapsible
         theme="light"
@@ -41,11 +41,11 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
             <span className="text-lg font-semibold text-black">Aww Random</span>
           </Link>
         </Header>
-        <Menu className="!border-none" defaultSelectedKeys={["version-1-uuid"]} defaultOpenKeys={["uuid"]} mode="inline" items={navItems as MenuItemType[]} />
+        <Menu defaultSelectedKeys={["version-1-uuid"]} defaultOpenKeys={["uuid"]} mode="inline" items={navItems as MenuItemType[]} />
       </Sider>
 
       <Layout>
-        <Header className="sticky top-0 z-10" style={{ background: colorBgContainer, padding: "0 24px" }}>
+        <Header className="sticky top-0 z-10" style={{ background: colorBgContainer, padding: "0 16px" }}>
           <Input
             suffix={
               <Button disabled size="small">
@@ -62,7 +62,6 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
         <Content
           style={{
             padding: 24,
-            margin: 16,
             borderRadius: borderRadiusLG,
             background: colorBgContainer,
           }}

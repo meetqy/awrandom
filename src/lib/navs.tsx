@@ -27,7 +27,6 @@ const genItem = (key: string, label: string, labelType?: "element" | "string") =
 export const navItems = [
   {
     ...genItem("/uuid", "UUID", "string"),
-    type: "group",
     children: [
       genItem("/uuid/v1", "Version 1 UUID"),
       genItem("/uuid/v3", "Version 3 UUID"),
@@ -40,6 +39,6 @@ export const navItems = [
   {
     ...genItem("/other", "Other", "string"),
     type: "group",
-    children: [{ type: "divider" }, genItem("/other/vin", "VIN")],
+    children: [genItem("/other/vin", "VIN")],
   },
 ];
