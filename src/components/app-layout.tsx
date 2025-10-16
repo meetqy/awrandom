@@ -14,55 +14,49 @@ const { Header, Sider, Content } = Layout;
 
 const AppLayout = ({ children }: { children: ReactNode }) => {
   const {
-    token: { colorBgContainer, borderRadiusLG, colorTextQuaternary },
+    token: { colorBgContainer, colorTextQuaternary, colorBorderSecondary },
   } = theme.useToken();
+
+  const siderWidth = 320;
 
   return (
     <Layout>
-      <Sider
-        style={{
-          overflow: "auto",
-          height: "100vh",
-          position: "sticky",
-          insetInlineStart: 0,
-          top: 0,
-          bottom: 0,
-          scrollbarWidth: "thin",
-          scrollbarGutter: "stable",
-        }}
-        width={320}
-        trigger={null}
-        collapsible
-        theme="light"
-      >
-        <Header style={{ background: colorBgContainer, padding: "0 16px" }}>
-          <Link href="/" className="flex h-full w-full items-center gap-2">
-            <SmileFilled style={{ fontSize: 28 }} />
-            <span className="text-lg font-semibold text-black">Aww Random</span>
-          </Link>
-        </Header>
-        <Menu defaultSelectedKeys={["version-1-uuid"]} defaultOpenKeys={["uuid"]} mode="inline" items={navItems as MenuItemType[]} />
-      </Sider>
+      <Header className="sticky top-0 z-10 flex" style={{ background: colorBgContainer, padding: 0, borderBottom: `1px solid ${colorBorderSecondary}` }}>
+        <Layout>
+          <Sider width={320} theme="light" trigger={null}>
+            <div className="px-2" style={{ borderRight: `1px solid ${colorBorderSecondary}` }}>
+              <Link href="/">
+                <Button type="primary" block variant="filled" size="large" icon={<SmileFilled />}>
+                  <span className="font-semibold tracking-widest">AWRANDOM</span>
+                </Button>
+              </Link>
+            </div>
+          </Sider>
+
+          <Content style={{ padding: "0 24px", background: colorBgContainer }}>
+            <Input
+              suffix={
+                <Button disabled size="small">
+                  ⌘ K
+                </Button>
+              }
+              placeholder="Type keywords..."
+              size="large"
+              prefix={<SearchOutlined style={{ color: colorTextQuaternary }} />}
+              className="max-w-72"
+              variant="borderless"
+            />
+          </Content>
+        </Layout>
+      </Header>
 
       <Layout>
-        <Header className="sticky top-0 z-10" style={{ background: colorBgContainer, padding: "0 16px" }}>
-          <Input
-            suffix={
-              <Button disabled size="small">
-                ⌘ K
-              </Button>
-            }
-            placeholder="Type keywords..."
-            size="large"
-            prefix={<SearchOutlined style={{ color: colorTextQuaternary }} />}
-            className="max-w-72"
-            variant="borderless"
-          />
-        </Header>
+        <Sider width={siderWidth} trigger={null} collapsible theme="light">
+          <Menu defaultSelectedKeys={["version-1-uuid"]} defaultOpenKeys={["uuid"]} mode="inline" items={navItems as MenuItemType[]} />
+        </Sider>
         <Content
           style={{
             padding: 24,
-            borderRadius: borderRadiusLG,
             background: colorBgContainer,
           }}
         >
