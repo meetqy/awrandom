@@ -40,7 +40,7 @@ export const exportToCSV = <T extends Record<string, unknown>>(data: T[], option
   if (link.download !== undefined) {
     const url = URL.createObjectURL(blob);
     link.setAttribute("href", url);
-    link.setAttribute("download", filename.endsWith(".csv") ? filename : `awwrandom_${filename}.csv`);
+    link.setAttribute("download", filename.endsWith(".csv") ? filename : `awrandom_${filename}.csv`);
     link.style.visibility = "hidden";
     document.body.appendChild(link);
     link.click();
@@ -62,7 +62,7 @@ export const exportToJSON = <T>(data: T, filename = "export.json") => {
   if (link.download !== undefined) {
     const url = URL.createObjectURL(blob);
     link.setAttribute("href", url);
-    link.setAttribute("download", filename.endsWith(".json") ? filename : `awwrandom_${filename}.json`);
+    link.setAttribute("download", filename.endsWith(".json") ? filename : `awrandom_${filename}.json`);
     link.style.visibility = "hidden";
     document.body.appendChild(link);
     link.click();

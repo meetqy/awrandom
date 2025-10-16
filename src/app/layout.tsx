@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Generate random things | AwwRandom",
-    template: "%s AwwRandom",
+    default: "Generate random things | awrandom",
+    template: "%s awrandom",
   },
   description: "Discover a collection of fun and useful random online tools with a clean, delightful UI designed for everyone.",
 };

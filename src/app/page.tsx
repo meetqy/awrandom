@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div style={{ padding: "24px" }}>
       <div style={{ marginBottom: "32px" }}>
-        <Title>Welcome to AwwRandom!</Title>
+        <Title>Welcome to awrandom!</Title>
         <Text type="secondary">Select a generator from the options below to get started.</Text>
       </div>
 
