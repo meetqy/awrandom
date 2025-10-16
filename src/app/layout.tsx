@@ -1,9 +1,20 @@
+import "@/styles/globals.css";
+
+import { type Metadata } from "next";
+
 import { Geist, Geist_Mono } from "next/font/google";
 
-import "@/styles/globals.css";
-import { Provider } from "@/components/provider";
+import { Providers } from "@/components/providers";
+import { Toaster } from "@/components/ui/sonner";
+import { TRPCReactProvider } from "@/trpc/react";
 
-import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: {
+    default: "Generate random things | awrandom",
+    template: "%s awrandom",
+  },
+  description: "Discover a collection of fun and useful random online tools with a clean, delightful UI designed for everyone.",
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,23 +26,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "Generate random things | awrandom",
-    template: "%s awrandom",
-  },
-  description: "Discover a collection of fun and useful random online tools with a clean, delightful UI designed for everyone.",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children, breadcrumb }: Readonly<{ children: React.ReactNode; breadcrumb: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Provider>{children}</Provider>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>
+        <TRPCReactProvider>
+          <Providers breadcrumb={breadcrumb}>
+            {children}
+
+            <Toaster richColors position="top-right" />
+          </Providers>
+        </TRPCReactProvider>
       </body>
     </html>
   );

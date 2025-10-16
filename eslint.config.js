@@ -1,5 +1,5 @@
 import { FlatCompat } from "@eslint/eslintrc";
-import tseslint, { configs } from "typescript-eslint";
+import tseslint from "typescript-eslint";
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
@@ -7,14 +7,16 @@ const compat = new FlatCompat({
 
 export default tseslint.config(
   {
-    ignores: [".next", "*.js", "next-env.d.ts", "node_modules"],
+    ignores: [".next", "*.js", "next-env.d.ts"],
   },
   ...compat.extends("next/core-web-vitals"),
   ...compat.extends("plugin:import/recommended"),
   {
     files: ["**/*.ts", "**/*.tsx"],
-    extends: [...configs.recommended, ...configs.recommendedTypeChecked, ...configs.stylisticTypeChecked],
+    extends: [...tseslint.configs.recommended, ...tseslint.configs.recommendedTypeChecked, ...tseslint.configs.stylisticTypeChecked],
     rules: {
+      "import/no-named-as-default-member": "off",
+      "import/no-named-as-default": "off",
       "@typescript-eslint/prefer-nullish-coalescing": "off",
       "react/no-unescaped-entities": "off",
       "@typescript-eslint/no-unsafe-argument": "off",
@@ -34,37 +36,22 @@ export default tseslint.config(
         {
           groups: ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],
           pathGroups: [
-            {
-              pattern: "react",
-              group: "external",
-              position: "before",
-            },
-            {
-              pattern: "next/**",
-              group: "external",
-              position: "after",
-            },
-            {
-              pattern: "**/*.{css,scss,less}",
-              group: "object",
-              position: "after",
-            },
-            {
-              pattern: "**/*.{png,jpg,jpeg,gif,svg}",
-              group: "object",
-              position: "after",
-            },
-            {
-              pattern: "@/**",
-              group: "internal",
-            },
+            { pattern: "react", group: "external", position: "before" },
+            { pattern: "next/**", group: "external", position: "after" },
+            { pattern: "**/*.{css,scss,less}", group: "object", position: "after" },
+            { pattern: "**/*.{png,jpg,jpeg,gif,svg}", group: "object", position: "after" },
+            { pattern: "@/**", group: "internal" },
           ],
           pathGroupsExcludedImportTypes: ["react", "next"],
           "newlines-between": "always",
-          alphabetize: {
-            order: "asc", // 升序排列
-            caseInsensitive: true, // 忽略大小写
-          },
+          alphabetize: { order: "asc", caseInsensitive: true },
+        },
+      ],
+      "sort-imports": [
+        "warn",
+        {
+          ignoreDeclarationSort: true,
+          ignoreCase: true,
         },
       ],
     },
