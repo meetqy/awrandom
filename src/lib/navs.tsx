@@ -1,20 +1,32 @@
 import Link from "next/link";
 
-const genItem = (key: string, label: string) => {
+export interface NavItem {
+  key: string;
+  label: React.ReactNode;
+  text: string;
+  type?: "group" | "divider";
+  children?: NavItem[];
+}
+
+const genItem = (key: string, label: string, labelType?: "element" | "string") => {
+  labelType = labelType || "element";
   return {
     key,
-    label: (
-      <Link className="inline-flex size-full items-center" href={key}>
-        {label}
-      </Link>
-    ),
+    label:
+      labelType === "element" ? (
+        <Link className="inline-flex size-full items-center" href={key}>
+          {label}
+        </Link>
+      ) : (
+        label
+      ),
     text: label,
   };
 };
 
 export const navItems = [
   {
-    ...genItem("/uuid", "UUID"),
+    ...genItem("/uuid", "UUID", "string"),
     type: "group",
     children: [
       genItem("/uuid/v1", "Version 1 UUID"),
@@ -26,8 +38,8 @@ export const navItems = [
     ],
   },
   {
-    ...genItem("/other", "Other"),
+    ...genItem("/other", "Other", "string"),
     type: "group",
-    children: [genItem("/other/vin", "VIN")],
+    children: [{ type: "divider" }, genItem("/other/vin", "VIN")],
   },
 ];

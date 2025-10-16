@@ -1,5 +1,5 @@
 "use client";
-import { Typography, Button } from "antd";
+import { Typography, Button, Divider } from "antd";
 
 import Link from "next/link";
 
@@ -26,11 +26,21 @@ export default function Home() {
                 {item.text}
               </Title>
               <div className="flex flex-wrap gap-4">
-                {item.children.map((child) => (
-                  <Link href={child.key} key={child?.key}>
-                    <Button size="large">{child.text}</Button>
-                  </Link>
-                ))}
+                {item.children.map((child) => {
+                  if (child && "type" in child && child.type === "divider") {
+                    return null;
+                  }
+
+                  if (child && "key" in child) {
+                    return (
+                      <Link href={child.key} key={child.key}>
+                        <Button size="large">{child.text}</Button>
+                      </Link>
+                    );
+                  }
+
+                  return null;
+                })}
               </div>
             </div>
           );
