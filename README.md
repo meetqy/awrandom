@@ -13,7 +13,7 @@ AWRANDOM is a free online random data generator tool that helps developers, test
 
 To get started with AWRANDOM, simply visit the [AWRANDOM website](https://awrandom.com) and select the type of data you want to generate. Customize the options as needed and click the "Generate" button to receive your random data.
 
-## development
+## Development
 
 ```shell
 git clone https://github.com/meetqy/awrandom.git
