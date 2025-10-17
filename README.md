@@ -1,29 +1,36 @@
-# Create T3 App
+# AWRANDOM
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+AWRANDOM is a free online random data generator tool that helps developers, testers, and data enthusiasts generate random data for various purposes, including testing, development, and data analysis. With AWRANDOM, users can easily generate random data such as names, addresses, phone numbers, email addresses, dates, and more.
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **Wide Range of Data Types**: AWRANDOM supports a variety of data types, including personal information, addresses, dates, numbers, and more.
+- **Customizable Options**: Users can customize the generated data by specifying parameters such as length, format, and quantity.
+- **Easy to Use**: The user-friendly interface makes it easy for users to generate random data quickly and efficiently.
+- **Free and Open Source**: AWRANDOM is completely free to use and is open source, allowing users to contribute and improve the tool.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Getting Started
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+To get started with AWRANDOM, simply visit the [AWRANDOM website](https://awrandom.com) and select the type of data you want to generate. Customize the options as needed and click the "Generate" button to receive your random data.
 
-## Learn More
+## development
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+```shell
+git clone https://github.com/meetqy/awrandom.git
+cd awrandom
+pnpm install
+pnpm dev
+```
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## Technologies Used
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+- Nextjs
+- Typescript
+- Tailwind CSS
+- TRPC
+- Shadcn UI
+- Faker.js
 
-## How do I deploy this?
+## License
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+AWRANDOM is licensed under the AGPL License. See the [LICENSE](LICENSE) file for more information.
