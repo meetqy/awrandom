@@ -14,8 +14,16 @@ export const navMain = [
   {
     title: "Other",
     url: "#",
-    items: [{ title: "VIN", url: "/gen/other/vin" }],
+    items: [
+      { title: "VIN", url: "/gen/other/vin" },
+      { title: "IMEI Number", url: "/gen/other/imei" },
+    ],
   },
+  // {
+  //   title: "Game",
+  //   url: "#",
+  //   items: [{ title: "Random Build LoL", url: "/gen/game/lol-build" }],
+  // },
 ];
 
 export const getNavMainItem = (url: string) => {

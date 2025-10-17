@@ -4,20 +4,13 @@ import { getNavMainItem } from "@/lib/sidebar";
 
 import { Generator } from "./generator";
 
-import type { Metadata } from "next";
+const item = getNavMainItem(`/gen/other/vin`);
 
-export const generateMetadata = (): Metadata => {
-  const item = getNavMainItem(`/gen/other/vin`);
-
-  return {
-    title: `Random ${item!.title} Generator`,
-    description: `Generate random ${item!.title} for testing and development purposes.`,
-  };
+export const metadata = {
+  title: `Random ${item!.title} Generator`,
+  description: `Generate random ${item!.title} for testing and development purposes.`,
 };
-
 export default function Layout() {
-  const item = getNavMainItem(`/gen/other/vin`);
-
   if (!item) {
     notFound();
   }
