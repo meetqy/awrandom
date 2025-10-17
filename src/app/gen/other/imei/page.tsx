@@ -22,7 +22,9 @@ export default function Page() {
         <h1>{metadata.title}</h1>
         <p>{metadata.description}</p>
       </article>
-      <Generator />
+      <section className="max-w-screen-lg">
+        <Generator />
+      </section>
       <article className="prose max-w-screen-lg">
         <h2>About IMEI</h2>
         <p>

@@ -1,3 +1,4 @@
+import "@/styles/theme.css";
 import "@/styles/globals.css";
 
 import { type Metadata } from "next";
@@ -5,6 +6,7 @@ import { type Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { Providers } from "@/components/providers";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { TRPCReactProvider } from "@/trpc/react";
 
@@ -28,14 +30,16 @@ const geistMono = Geist_Mono({
 
 export default function RootLayout({ children, breadcrumb }: Readonly<{ children: React.ReactNode; breadcrumb: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
         <TRPCReactProvider>
-          <Providers breadcrumb={breadcrumb}>
-            {children}
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <Providers breadcrumb={breadcrumb}>
+              {children}
 
-            <Toaster richColors position="top-right" />
-          </Providers>
+              <Toaster richColors position="top-right" />
+            </Providers>
+          </ThemeProvider>
         </TRPCReactProvider>
       </body>
     </html>

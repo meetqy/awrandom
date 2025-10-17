@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/sidebar";
 import { navMain } from "@/lib/sidebar";
 
+import ModeToggle from "./mode-toggle";
 import { Button } from "./ui/button";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -71,7 +72,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarGroup>
       </SidebarContent>
       <SidebarRail />
-      <SidebarFooter></SidebarFooter>
+      <SidebarFooter>
+        <ModeToggle />
+      </SidebarFooter>
     </Sidebar>
   );
 }

@@ -24,7 +24,10 @@ export default function Layout() {
           vehicles in the automotive industry.
         </p>
       </article>
-      <Generator />
+
+      <section className="max-w-screen-lg">
+        <Generator />
+      </section>
 
       <article className="prose max-w-screen-lg">
         <h2>About VINs</h2>
