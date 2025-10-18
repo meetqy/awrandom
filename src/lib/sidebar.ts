@@ -17,6 +17,7 @@ export const navMain = [
     items: [
       { title: "VIN", url: "/gen/other/vin" },
       { title: "IMEI Number", url: "/gen/other/imei" },
+      { title: "Emotion", url: "/gen/other/emotion" },
     ],
   },
   // {
